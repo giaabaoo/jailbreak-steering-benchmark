@@ -10,7 +10,7 @@ Each experiment is fully specified by composing YAML configs. Running an experim
 
 **SAE max-text steering**: Instead of using `W_dec[i]` directly, we extract the model's residual-stream activation on the feature's max-activating text as the steering direction. This grounds the direction in a representation the model recognizes at inference time, rather than a raw decoder weight that may not align with the residual stream.
 
-**Angular steering** ([Winninger et al., 2025](https://arxiv.org/abs/2510.26243)): Activation addition changes both direction and magnitude. We test whether changing direction only (norm-preserving rotation) works better — if SAE max-text underperforms with activation addition, is the magnitude change the bottleneck?
+**Angular steering**: Inspired by the norm-preserving rotation concept in [Winninger et al., 2025](https://arxiv.org/abs/2510.26243), we apply rotation directly to the refusal direction as the steering axis. Activation addition changes both direction and magnitude — we test whether changing direction only works better and whether this closes the gap for SAE max-text steering.
 
 ## Methods
 
