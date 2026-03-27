@@ -10,7 +10,7 @@ Each experiment is fully specified by composing YAML configs. Running an experim
 
 **SAE max-text steering**: Instead of using `W_dec[i]` directly, we extract the model's residual-stream activation on the feature's max-activating text as the steering direction. This grounds the direction in a representation the model recognizes at inference time, rather than a raw decoder weight that may not align with the residual stream.
 
-**Angular steering**: Inspired by the norm-preserving rotation concept in [Winninger et al., 2025](https://arxiv.org/abs/2510.26243), we apply rotation directly to the refusal direction as the steering axis. Activation addition changes both direction and magnitude — we test whether changing direction only works better and whether this closes the gap for SAE max-text steering.
+**Angular steering**: Inspired by the norm-preserving rotation concept in [Vu & Nguyen, 2025](https://arxiv.org/abs/2510.26243), we apply rotation directly to the refusal direction as the steering axis. Activation addition changes both direction and magnitude — we test whether changing direction only works better and whether this closes the gap for SAE max-text steering.
 
 ## Methods
 
@@ -121,7 +121,7 @@ sbatch scripts/slurm/full313_angular_refusal_toolsdir_gemma.slurm
 
 [Refusal in Language Models Is Mediated by a Single Direction](https://arxiv.org/abs/2406.11717)
 
-[Shadow Steering: Angular Activation Steering for Jailbreaking LLMs](https://arxiv.org/abs/2510.26243)
+[Angular Steering: Behavior Control via Rotation in Activation Space](https://arxiv.org/abs/2510.26243)
 
 [A StrongREJECT for Empty Jailbreaks](https://arxiv.org/abs/2402.10260)
 
