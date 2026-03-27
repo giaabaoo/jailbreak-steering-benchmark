@@ -36,7 +36,9 @@ Reported ASR is best-of-8 oracle upper bound.
 **Angular steering**: norm-preserving rotation in a 2D subspace.
 
 `angular_refusal_180`: flip `r` by 180°, i.e. `h -= 2*(h·r̂)*r̂`
+
 `angular_sae_maxtext_refusal_150`: rotate in plane `{r, e_i}` by 150°
+
 `angular_sae_150 + refusal_180`: double hook — flip `r` 180° then rotate `e_i` 150°
 
 ## Evaluation
