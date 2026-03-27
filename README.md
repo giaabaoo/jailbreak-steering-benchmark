@@ -23,9 +23,7 @@ Each experiment is fully specified by composing YAML configs. Running an experim
 
 This is why all our methods intervene at pre-hook layer 15.
 
-`refusal_only`: `h -= r` at layer 15 via pre-hook. Direction computed on-the-fly from 8 contrastive pairs.
-
-`refusal_dir_actadd`: `h[15] += -1.0 * r` via pre-hook. Uses the Arditi et al. direction.
+`refusal_only` / `refusal_dir_actadd`: `h += -1.0 * r` at layer 15 via pre-hook. Same formula, differ only in refusal direction source (see table).
 
 **SAE feature steering**: query [Neuronpedia](https://neuronpedia.org) for top-8 SAE features per prompt (GemmaScope layer-15 16k, `frac_nonzero <= 0.01`), extract residual-stream activation of each feature's max-activating text as `e_i`, apply via pre-hook:
 ```
