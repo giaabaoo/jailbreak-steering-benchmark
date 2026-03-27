@@ -96,7 +96,11 @@ Datasets:
 - `data/advbench_250.json` — 250 harmful prompts
 - `data/hard_313_10.json` — 10 hardest prompts selected from StrongREJECT
 
-SAE weights: [GemmaScope](https://huggingface.co/google/gemma-scope-2b-pt-res) `layer_15/width_16k/average_l0_23`
+SAE weights (model-dependent):
+- Gemma-2-2B-IT: [GemmaScope](https://huggingface.co/google/gemma-scope-2b-pt-res) `layer_15/width_16k/average_l0_23`
+- For other models, download the corresponding SAE weights and update `sae_weights_path` in the config.
+
+Refusal direction: run the pipeline from [Arditi et al.](https://arxiv.org/abs/2406.11717) in `tools/refusal_direction/` to generate `direction.pt` for your model, then set `refusal_dir_path` in the model config.
 
 ## How to Run
 
