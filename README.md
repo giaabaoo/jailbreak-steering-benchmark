@@ -113,12 +113,12 @@ sbatch scripts/slurm/full313_angular_refusal_toolsdir_gemma.slurm
 
 ## References
 
-https://arxiv.org/abs/2406.11717
+[Refusal in Language Models Is Mediated by a Single Direction](https://arxiv.org/abs/2406.11717)
 
-https://arxiv.org/abs/2510.26243
+[Shadow Steering: Angular Activation Steering for Jailbreaking LLMs](https://arxiv.org/abs/2510.26243)
 
-https://arxiv.org/abs/2402.10260
+[A StrongREJECT for Empty Jailbreaks](https://arxiv.org/abs/2402.10260)
 
-https://huggingface.co/google/gemma-scope-2b-pt-res
+[GemmaScope SAE](https://huggingface.co/google/gemma-scope-2b-pt-res)
 
-https://neuronpedia.org
+[Neuronpedia](https://neuronpedia.org)
