@@ -1,0 +1,5 @@
+exp_name: "evaluate"
+
+pipeline:
+  name: evaluate
+  results_path: "REQUIRED"   # pass via --pipeline.results_path at runtime

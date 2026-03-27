@@ -1,0 +1,6 @@
+dataset:
+  name: advbench_250
+  dataset_class: harmful_prompts
+  data_path: ./data/advbench_250.json
+  num_samples: 0        # 0 = use all 250
+  prompt_ids: []        # [] = use all

@@ -1,0 +1,44 @@
+# Logs
+logs/
+
+# Local analysis files (not for public)
+hard10_responses.md
+hard10_feature_responses.md
+
+# Trash
+trash/
+
+# Raw model outputs (large, contain harmful content)
+results/**/results.json
+results/**/log.txt
+
+# AdvBench results (not in final study)
+results/advbench_*/
+results/inference_only-*/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# PDFs
+*.pdf
+
+# Environment
+.env
+*.env
+
+# OS
+.DS_Store
+tools/angular-steering/.git
+tools/axbench/.git
+tools/refusal_direction/.git
+tools/strong_reject/.git
+tools/axbench/
+tools/strong_reject/

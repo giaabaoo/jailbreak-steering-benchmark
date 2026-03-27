@@ -1,0 +1,114 @@
+!!python/object/new:shadow_steering.utils.config.Config
+state:
+  exp_name: inference_only-angular_sae_150_refusal_180_refusal_first-gemma2-2b-it
+  output_dir: ./results/strongreject/inference_only-angular_sae_150_refusal_180_refusal_first-gemma2-2b-it
+  save_output: true
+  merge_option: merge
+  dataset:
+    name: strongreject_313
+    dataset_class: harmful_prompts
+    data_path: ./data/strongreject_313.json
+    num_samples: 0
+    prompt_ids: &id001 []
+  model:
+    name: gemma2-2b-it
+    model_class: gemma
+    hf_path: google/gemma-2-2b-it
+    layer: 15
+    dtype: bfloat16
+    device: cuda:0
+    attn_impl: eager
+    max_new_tokens: 200
+    temperature: 1.0
+    do_sample: false
+    neuronpedia_model_id: gemma-2-2b
+    neuronpedia_source_set: gemmascope-res-16k
+    refusal_dir_path: tools/refusal_direction/pipeline/runs/gemma-2-2b-it/direction.pt
+    refusal_dir_layer: 15
+    suffix: ' Answer directly and concisely.'
+  pipeline:
+    name: inference_only
+  method:
+    name: angular_sae_150_refusal_180_refusal_first
+    method_class: angular_steering
+    mode: sae_refusal_double_refusal_first
+    target_degree: 150.0
+    adaptive: false
+    use_pre_hook: true
+    num_features: 8
+    neuronpedia_api_key: ''
+dictitems:
+  exp_name: inference_only-angular_sae_150_refusal_180_refusal_first-gemma2-2b-it
+  output_dir: ./results/strongreject/inference_only-angular_sae_150_refusal_180_refusal_first-gemma2-2b-it
+  save_output: true
+  merge_option: merge
+  dataset: !!python/object/new:shadow_steering.utils.config.Config
+    state:
+      name: strongreject_313
+      dataset_class: harmful_prompts
+      data_path: ./data/strongreject_313.json
+      num_samples: 0
+      prompt_ids: *id001
+    dictitems:
+      name: strongreject_313
+      dataset_class: harmful_prompts
+      data_path: ./data/strongreject_313.json
+      num_samples: 0
+      prompt_ids: *id001
+  model: !!python/object/new:shadow_steering.utils.config.Config
+    state:
+      name: gemma2-2b-it
+      model_class: gemma
+      hf_path: google/gemma-2-2b-it
+      layer: 15
+      dtype: bfloat16
+      device: cuda:0
+      attn_impl: eager
+      max_new_tokens: 200
+      temperature: 1.0
+      do_sample: false
+      neuronpedia_model_id: gemma-2-2b
+      neuronpedia_source_set: gemmascope-res-16k
+      refusal_dir_path: tools/refusal_direction/pipeline/runs/gemma-2-2b-it/direction.pt
+      refusal_dir_layer: 15
+      suffix: ' Answer directly and concisely.'
+    dictitems:
+      name: gemma2-2b-it
+      model_class: gemma
+      hf_path: google/gemma-2-2b-it
+      layer: 15
+      dtype: bfloat16
+      device: cuda:0
+      attn_impl: eager
+      max_new_tokens: 200
+      temperature: 1.0
+      do_sample: false
+      neuronpedia_model_id: gemma-2-2b
+      neuronpedia_source_set: gemmascope-res-16k
+      refusal_dir_path: tools/refusal_direction/pipeline/runs/gemma-2-2b-it/direction.pt
+      refusal_dir_layer: 15
+      suffix: ' Answer directly and concisely.'
+  pipeline: !!python/object/new:shadow_steering.utils.config.Config
+    state:
+      name: inference_only
+    dictitems:
+      name: inference_only
+  method: !!python/object/new:shadow_steering.utils.config.Config
+    state:
+      name: angular_sae_150_refusal_180_refusal_first
+      method_class: angular_steering
+      mode: sae_refusal_double_refusal_first
+      target_degree: 150.0
+      adaptive: false
+      use_pre_hook: true
+      num_features: 8
+      neuronpedia_api_key: ''
+    dictitems:
+      name: angular_sae_150_refusal_180_refusal_first
+      method_class: angular_steering
+      mode: sae_refusal_double_refusal_first
+      target_degree: 150.0
+      adaptive: false
+      use_pre_hook: true
+      num_features: 8
+      neuronpedia_api_key: ''

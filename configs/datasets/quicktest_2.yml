@@ -1,0 +1,8 @@
+dataset:
+  name: quicktest_2
+  dataset_class: harmful_prompts
+  data_path: ./data/strongreject_313.json
+  num_samples: 2
+  prompt_ids: []
+
+output_dir: ./results/strongreject

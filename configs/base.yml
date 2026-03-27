@@ -1,0 +1,4 @@
+exp_name: "run"
+output_dir: "./results"
+save_output: True
+merge_option: merge

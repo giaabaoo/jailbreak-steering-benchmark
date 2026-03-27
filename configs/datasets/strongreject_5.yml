@@ -1,0 +1,8 @@
+dataset:
+  name: strongreject_5
+  dataset_class: harmful_prompts
+  data_path: ./data/strongreject_313.json
+  num_samples: 5
+  prompt_ids: []
+
+output_dir: ./results/strongreject

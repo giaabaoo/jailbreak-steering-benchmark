@@ -1,0 +1,6 @@
+dataset:
+  name: harmful_prompts
+  dataset_class: harmful_prompts
+  data_path: ./data/harmful_prompts.json
+  num_samples: 0        # 0 = use all; N = use first N prompts
+  prompt_ids: []        # [] = use all; [3, 7] = run only those prompt IDs

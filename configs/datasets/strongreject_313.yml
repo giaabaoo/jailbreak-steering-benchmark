@@ -1,0 +1,8 @@
+dataset:
+  name: strongreject_313
+  dataset_class: harmful_prompts
+  data_path: ./data/strongreject_313.json
+  num_samples: 0        # 0 = use all 313
+  prompt_ids: []        # [] = use all
+
+output_dir: ./results/strongreject

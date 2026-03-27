@@ -1,0 +1,8 @@
+dataset:
+  name: hard_41
+  dataset_class: harmful_prompts
+  data_path: ./data/hard_313_41.json
+  num_samples: 0
+  prompt_ids: []
+
+output_dir: ./results/strongreject_hard

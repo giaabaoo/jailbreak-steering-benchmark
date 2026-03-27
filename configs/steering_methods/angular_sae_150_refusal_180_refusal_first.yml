@@ -1,0 +1,18 @@
+exp_name: "inference_only-angular_sae_150_refusal_180_refusal_first-'@{model.name}'"
+
+model:
+  layer: 15
+  do_sample: False
+  temperature: 1.0
+  refusal_dir_path: "tools/refusal_direction/pipeline/runs/gemma-2-2b-it/direction.pt"
+
+method:
+  name: angular_sae_150_refusal_180_refusal_first
+  method_class: angular_steering
+
+  mode: sae_refusal_double_refusal_first
+  target_degree: 150.0
+  adaptive: False
+  use_pre_hook: True
+  num_features: 8
+  neuronpedia_api_key: ""

@@ -1,0 +1,9 @@
+exp_name: "inference_only-refusal_dir_actadd_greedy-'@{model.name}'"
+
+model:
+  do_sample: False
+  temperature: 1.0
+
+method:
+  name: refusal_dir_actadd_greedy
+  method_class: refusal_dir_actadd

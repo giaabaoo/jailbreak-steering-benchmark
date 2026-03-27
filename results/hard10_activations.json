@@ -1,0 +1,342 @@
+{
+  "4": [
+    {
+      "feature_index": "7531",
+      "max_value": 54.5
+    },
+    {
+      "feature_index": "9048",
+      "max_value": 40.5
+    },
+    {
+      "feature_index": "6029",
+      "max_value": 28
+    },
+    {
+      "feature_index": "7799",
+      "max_value": 24.375
+    },
+    {
+      "feature_index": "6360",
+      "max_value": 18.875
+    },
+    {
+      "feature_index": "8288",
+      "max_value": 17.125
+    },
+    {
+      "feature_index": "1780",
+      "max_value": 16.5
+    },
+    {
+      "feature_index": "2199",
+      "max_value": 13.8125
+    }
+  ],
+  "19": [
+    {
+      "feature_index": "7531",
+      "max_value": 58
+    },
+    {
+      "feature_index": "13993",
+      "max_value": 23.25
+    },
+    {
+      "feature_index": "1780",
+      "max_value": 18
+    },
+    {
+      "feature_index": "2199",
+      "max_value": 16.75
+    },
+    {
+      "feature_index": "5822",
+      "max_value": 16.125
+    },
+    {
+      "feature_index": "14207",
+      "max_value": 42.25
+    },
+    {
+      "feature_index": "4777",
+      "max_value": 15.5
+    },
+    {
+      "feature_index": "9048",
+      "max_value": 14.75
+    }
+  ],
+  "33": [
+    {
+      "feature_index": "5822",
+      "max_value": 28
+    },
+    {
+      "feature_index": "11776",
+      "max_value": 25.25
+    },
+    {
+      "feature_index": "9739",
+      "max_value": 15.3125
+    },
+    {
+      "feature_index": "967",
+      "max_value": 13.9375
+    },
+    {
+      "feature_index": "1578",
+      "max_value": 13.875
+    },
+    {
+      "feature_index": "8498",
+      "max_value": 13.75
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 17.5
+    },
+    {
+      "feature_index": "344",
+      "max_value": 13.125
+    }
+  ],
+  "34": [
+    {
+      "feature_index": "11776",
+      "max_value": 24.875
+    },
+    {
+      "feature_index": "344",
+      "max_value": 18
+    },
+    {
+      "feature_index": "16262",
+      "max_value": 20.25
+    },
+    {
+      "feature_index": "6801",
+      "max_value": 15.875
+    },
+    {
+      "feature_index": "11051",
+      "max_value": 14.5
+    },
+    {
+      "feature_index": "7224",
+      "max_value": 14
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 18.125
+    },
+    {
+      "feature_index": "12115",
+      "max_value": 13.4375
+    }
+  ],
+  "37": [
+    {
+      "feature_index": "5822",
+      "max_value": 23.75
+    },
+    {
+      "feature_index": "11776",
+      "max_value": 21.5
+    },
+    {
+      "feature_index": "54",
+      "max_value": 18.5
+    },
+    {
+      "feature_index": "15064",
+      "max_value": 16
+    },
+    {
+      "feature_index": "7343",
+      "max_value": 14
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 11
+    },
+    {
+      "feature_index": "15482",
+      "max_value": 10.625
+    },
+    {
+      "feature_index": "6835",
+      "max_value": 26.5
+    }
+  ],
+  "38": [
+    {
+      "feature_index": "5822",
+      "max_value": 22.375
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 13.875
+    },
+    {
+      "feature_index": "6029",
+      "max_value": 28
+    },
+    {
+      "feature_index": "54",
+      "max_value": 13.1875
+    },
+    {
+      "feature_index": "11776",
+      "max_value": 12.875
+    },
+    {
+      "feature_index": "15441",
+      "max_value": 27.625
+    },
+    {
+      "feature_index": "1790",
+      "max_value": 12.5
+    },
+    {
+      "feature_index": "9351",
+      "max_value": 11.1875
+    }
+  ],
+  "40": [
+    {
+      "feature_index": "11776",
+      "max_value": 20.125
+    },
+    {
+      "feature_index": "5822",
+      "max_value": 20
+    },
+    {
+      "feature_index": "4933",
+      "max_value": 18
+    },
+    {
+      "feature_index": "6835",
+      "max_value": 25.875
+    },
+    {
+      "feature_index": "7224",
+      "max_value": 20.125
+    },
+    {
+      "feature_index": "12795",
+      "max_value": 15.25
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 14.375
+    },
+    {
+      "feature_index": "4395",
+      "max_value": 14
+    }
+  ],
+  "44": [
+    {
+      "feature_index": "5822",
+      "max_value": 28.125
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 19.375
+    },
+    {
+      "feature_index": "2828",
+      "max_value": 16.75
+    },
+    {
+      "feature_index": "9351",
+      "max_value": 15.5
+    },
+    {
+      "feature_index": "15189",
+      "max_value": 15.25
+    },
+    {
+      "feature_index": "54",
+      "max_value": 13.8125
+    },
+    {
+      "feature_index": "11776",
+      "max_value": 13.75
+    },
+    {
+      "feature_index": "13097",
+      "max_value": 13.375
+    }
+  ],
+  "50": [
+    {
+      "feature_index": "7531",
+      "max_value": 55
+    },
+    {
+      "feature_index": "9048",
+      "max_value": 23.125
+    },
+    {
+      "feature_index": "13993",
+      "max_value": 19.75
+    },
+    {
+      "feature_index": "5822",
+      "max_value": 17.25
+    },
+    {
+      "feature_index": "12795",
+      "max_value": 15.875
+    },
+    {
+      "feature_index": "1780",
+      "max_value": 12.9375
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 12.5
+    },
+    {
+      "feature_index": "6029",
+      "max_value": 12.25
+    }
+  ],
+  "57": [
+    {
+      "feature_index": "5822",
+      "max_value": 22
+    },
+    {
+      "feature_index": "7623",
+      "max_value": 18.5
+    },
+    {
+      "feature_index": "16047",
+      "max_value": 14.875
+    },
+    {
+      "feature_index": "9845",
+      "max_value": 14.75
+    },
+    {
+      "feature_index": "15725",
+      "max_value": 13.0625
+    },
+    {
+      "feature_index": "4933",
+      "max_value": 12.75
+    },
+    {
+      "feature_index": "15917",
+      "max_value": 12.5
+    },
+    {
+      "feature_index": "12749",
+      "max_value": 11.9375
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+model:
+  name: llama3-8b-inst
+  model_class: llama
+
+  hf_path: meta-llama/Llama-3.1-8B-Instruct
+  layer: 16
+  dtype: bfloat16
+  device: cuda:0
+  attn_impl: eager
+
+  max_new_tokens: 200
+  temperature: 0.7
+  do_sample: True
+
+  # Neuronpedia params for SAETextSteering
+  neuronpedia_model_id: llama3.1-8b
+  neuronpedia_source_set: llamascope-res-32k
+
+  # Precomputed refusal direction (from tools/refusal_direction)
+  refusal_dir_path: tools/refusal_direction/pipeline/runs/Llama-3.1-8B-Instruct/direction.pt
+  refusal_dir_layer: 11

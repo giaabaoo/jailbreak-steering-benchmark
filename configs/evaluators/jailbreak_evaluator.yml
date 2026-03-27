@@ -1,0 +1,6 @@
+evaluator:
+  evaluator_class: jailbreak
+
+  use_llamaguard: True
+  llamaguard_model: meta-llama/Llama-Guard-3-8B
+  llamaguard_device: cuda:0

@@ -1,0 +1,7 @@
+exp_name: "inference_only-refusal_only-'@{model.name}'"
+
+method:
+  name: refusal_only
+  method_class: refusal_only
+
+  sub_strength: 1.0

@@ -1,0 +1,18 @@
+exp_name: "inference_only-sae_refdir_prehook_greedy-'@{model.name}'"
+
+model:
+  layer: 15
+  do_sample: False
+  temperature: 1.0
+
+method:
+  name: sae_refdir_prehook_greedy
+  method_class: sae_text_steering
+
+  use_pre_hook: True
+  add_strength: 0.3
+  sub_strength: 1.0
+  num_features: 8
+  neuronpedia_api_key: ""
+  normalize_add_vec: False
+  use_combined_maxtext: False

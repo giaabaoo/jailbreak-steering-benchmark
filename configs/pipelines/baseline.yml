@@ -1,0 +1,4 @@
+exp_name: "baseline-'@{model.name}'"
+
+pipeline:
+  name: baseline
