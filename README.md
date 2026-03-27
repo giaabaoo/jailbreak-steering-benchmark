@@ -1,8 +1,8 @@
 # Jailbreak Steering Benchmark
 
-This repository implements and compares activation steering methods for bypassing LLM safety refusals on **Gemma-2-2B-IT**, evaluated on the [StrongREJECT](https://github.com/alexandrasouly/strongreject) benchmark (313 harmful prompts). All methods are self-implemented from scratch using a shared config-driven pipeline following object-oriented design — each steering method, model, and pipeline is an independent class, making the codebase modular, easy to extend, and fully reproducible.
+This repository implements and compares activation steering methods for bypassing LLM safety refusals on **Gemma-2-2B-IT**, evaluated on the [StrongREJECT](https://github.com/alexandrasouly/strongreject) benchmark (313 harmful prompts). All methods are self-implemented from scratch using a shared config-driven pipeline following object-oriented design for good reproducibility.
 
----
+Each experiment is fully specified by composing YAML configs (model, dataset, pipeline, steering method) and plugged into a unified entry point via `main.py`. Shell and SLURM scripts in `scripts/` wrap these configs for local and cluster runs.
 
 ## Motivation
 
