@@ -6,7 +6,7 @@ Each experiment is fully specified by composing YAML configs. Running an experim
 
 ## Motivation
 
-Prior work ([Arditi et al., 2025](https://arxiv.org/abs/2406.11717)) showed that LLM refusal is mediated by a single linear direction in the residual stream. A natural question is: **can we steer more effectively by combining the refusal direction with semantically relevant content?**
+Prior work ([Arditi et al., 2025](https://arxiv.org/abs/2406.11717)) showed that LLM refusal is mediated by a single linear direction in the residual stream. A natural question is: **can we steer more effectively by combining the refusal direction with semantically relevant content?** Beyond bypass rate, we also ask whether the outputs are actually convincing and specific — a response that evades refusal but is vague or incoherent is not a meaningful success.
 
 **SAE max-text steering**: Instead of using the SAE decoder weight `W_dec[i]` directly (as in prior methods), we extract the model's residual-stream activation on the feature's max-activating text as the steering direction. This grounds the direction in a semantically coherent representation the model recognizes at inference time, rather than a raw decoder weight that may not align with the residual stream.
 
