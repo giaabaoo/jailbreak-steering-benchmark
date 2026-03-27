@@ -2,7 +2,7 @@
 
 This repository implements and compares activation steering methods for bypassing LLM safety refusals on **Gemma-2-2B-IT**, evaluated on the [StrongREJECT](https://github.com/alexandrasouly/strongreject) benchmark (313 harmful prompts). All methods are self-implemented from scratch following object-oriented design for good reproducibility.
 
-Each experiment is fully specified by composing YAML configs (model, dataset, pipeline, steering method). Running an experiment means passing these configs to `main.py`, which automatically assembles the pipeline components — model, dataset, and steering method — and runs inference over the full dataset. See `scripts/` for ready-to-use examples.
+Each experiment is fully specified by composing YAML configs. Running an experiment means passing these configs to `main.py`, which automatically assembles the required pipeline components and runs inference over the specified dataset. See `scripts/` for ready-to-use examples.
 
 ## Motivation
 
