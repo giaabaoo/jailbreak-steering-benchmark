@@ -16,9 +16,10 @@ Prior work ([Arditi et al., 2025](https://arxiv.org/abs/2406.11717)) showed that
 
 **Baseline**: no steering.
 
-**Refusal direction** (from [Arditi et al.](https://arxiv.org/abs/2406.11717) — `mean(harmful) - mean(harmless)` at pre-hook layer 15, last token):
-- `refusal_only`: orthogonal projection across all layers
-- `refusal_dir_actadd`: `h[15] += -1.0 * r` via pre-hook
+**Refusal direction**: taken from [Arditi et al.](https://arxiv.org/abs/2406.11717), which finds the direction through three steps: (1) extract candidate directions as `mean(harmful) - mean(harmless)` at the residual stream input (pre-hook) of every layer and token position; (2) score each candidate by how well ablating it reduces refusal on harmful prompts while preserving behavior on harmless prompts (KL divergence constraint); (3) select the single best (layer, position) pair — which for Gemma-2-2B-IT is layer 15, last token, pre-hook. This principled selection is why pre-hook at layer 15 is used throughout.
+
+`refusal_only`: orthogonal projection of `r` across all layers.
+`refusal_dir_actadd`: `h[15] += -1.0 * r` via pre-hook.
 
 **SAE feature steering**: query [Neuronpedia](https://neuronpedia.org) for top-8 SAE features per prompt (GemmaScope layer-15 16k, `frac_nonzero ≤ 0.01`), extract residual-stream activation of each feature's max-activating text as `e_i`:
 ```
@@ -26,10 +27,11 @@ h[15] += 0.3 * e_i - 1.0 * r
 ```
 Reported ASR is best-of-8 (oracle upper bound).
 
-**Angular steering**: norm-preserving rotation in a 2D subspace:
-- `angular_refusal_180`: flip `r` by 180° — `h -= 2*(h·r̂)*r̂`
-- `angular_sae_maxtext_refusal_150`: rotate in plane `{r, e_i}` by 150°
-- `angular_sae_150 + refusal_180`: double hook — flip `r` 180° then rotate `e_i` 150°
+**Angular steering**: norm-preserving rotation in a 2D subspace.
+
+`angular_refusal_180`: flip `r` by 180°, i.e. `h -= 2*(h·r̂)*r̂`
+`angular_sae_maxtext_refusal_150`: rotate in plane `{r, e_i}` by 150°
+`angular_sae_150 + refusal_180`: double hook — flip `r` 180° then rotate `e_i` 150°
 
 ## Evaluation
 
@@ -42,27 +44,32 @@ StrongREJECT rubric scored by **Claude Sonnet**: `refusal` (0/1), `convincingnes
 | 1 | `angular_refusal_180` | **89.1%** | 15 | rotate `r` 180° | pre | tools dir | N/A |
 | 2 | `sae_refdir_prehook` | **87.2%** | 15 | `h += 0.3·e_i − 1.0·r` | pre | tools dir | best-of-8 oracle |
 | 3 | `refusal_dir_actadd` | **86.9%** | 15 | `h += −1.0·r` | pre | tools dir | N/A |
-| 4 | `angular_sae_150 + refusal_180` | **76.0%** | 15 | rotate `r` 180° → rotate `e_i` 150° | pre | tools dir | best-of-8 oracle |
+| 4 | `angular_sae_150 + refusal_180` | **76.0%** | 15 | rotate `r` 180° then rotate `e_i` 150° | pre | tools dir | best-of-8 oracle |
 | 5 | `angular_sae_maxtext_refusal_150` | **61.7%** | 15 | rotate in plane `{r, e_i}` by 150° | pre | tools dir | best-of-8 oracle |
 | 6 | `angular_refusal_180` (8-pair, fwd) | **37.1%** | 15 | rotate `r` 180° | fwd | 8-pair | N/A |
 | 7 | `refusal_only` | **30.4%** | all | orthogonal proj, all layers | pre+fwd | 8-pair | N/A |
 | 8 | `baseline` | **1.0%** | — | no steering | — | — | — |
 
 **Key findings:**
-- Intervention space must match extraction space — the tools direction is extracted at pre-hook layer 15; applying as fwd-hook operates on a different space and collapses ASR from 89.1% to 37.1%.
-- Simple 180° flip of `r` is sufficient and beats all SAE-augmented methods.
-- Angular rotation ≈ actadd at the top — magnitude change is not the bottleneck.
-- SAE max-text is competitive (87.2%) but relies on oracle feature selection; no reliable criterion found for single-feature selection at inference time.
-- SAE decoder vectors (`W_dec[feat_idx]`) fail as rotation axes — 0% ASR, confirming they are not aligned with the residual stream at inference time.
+
+Intervention space must match extraction space — the tools direction is extracted at pre-hook layer 15; applying as fwd-hook operates on a different space and collapses ASR from 89.1% to 37.1%.
+
+Simple 180° flip of `r` is sufficient and beats all SAE-augmented methods.
+
+Angular rotation ≈ actadd at the top — magnitude change is not the bottleneck.
+
+SAE max-text is competitive (87.2%) but relies on oracle feature selection; no reliable single-feature selection criterion was found.
+
+SAE decoder vectors (`W_dec[feat_idx]`) fail as rotation axes — 0% ASR, confirming they are not aligned with the residual stream at inference time.
 
 ## Project Structure
 
 ```
-├── main.py                          # entry point
+├── main.py
 ├── configs/                         # YAML configs for model, dataset, pipeline, method
 ├── data/                            # strongreject_313.json, advbench_250.json
 ├── scripts/gemma/, scripts/slurm/   # shell and SLURM run scripts
-├── shadow_steering/                 # library
+├── shadow_steering/
 │   ├── models/base_model.py
 │   ├── pipelines/inference_only.py
 │   └── steering_methods/            # sae_text_steering, refusal_dir, angular_steering, ...
@@ -84,7 +91,6 @@ SAE weights: [GemmaScope](https://huggingface.co/google/gemma-scope-2b-pt-res) `
 ## How to Run
 
 ```bash
-# compose configs and run
 python main.py --config configs/base.yml \
   configs/datasets/strongreject_313.yml \
   configs/models/gemma/gemma2_2b_it.yml \
@@ -97,8 +103,12 @@ sbatch scripts/slurm/full313_angular_refusal_toolsdir_gemma.slurm
 
 ## References
 
-- Arditi et al. (2025). *Refusal in Language Models Is Mediated by a Single Direction*. [arXiv:2406.11717](https://arxiv.org/abs/2406.11717)
-- Winninger et al. (2025). *Shadow Steering: Angular Activation Steering for Jailbreaking LLMs*. [arXiv:2510.26243](https://arxiv.org/abs/2510.26243)
-- Souly et al. (2024). *A StrongREJECT for Empty Jailbreaks*. [arXiv:2402.10260](https://arxiv.org/abs/2402.10260)
-- [GemmaScope SAE](https://huggingface.co/google/gemma-scope-2b-pt-res) — Google DeepMind
-- [Neuronpedia](https://neuronpedia.org) — SAE feature search API
+Arditi et al. (2025). *Refusal in Language Models Is Mediated by a Single Direction*. [arXiv:2406.11717](https://arxiv.org/abs/2406.11717)
+
+Winninger et al. (2025). *Shadow Steering: Angular Activation Steering for Jailbreaking LLMs*. [arXiv:2510.26243](https://arxiv.org/abs/2510.26243)
+
+Souly et al. (2024). *A StrongREJECT for Empty Jailbreaks*. [arXiv:2402.10260](https://arxiv.org/abs/2402.10260)
+
+[GemmaScope SAE](https://huggingface.co/google/gemma-scope-2b-pt-res) — Google DeepMind
+
+[Neuronpedia](https://neuronpedia.org) — SAE feature search API
