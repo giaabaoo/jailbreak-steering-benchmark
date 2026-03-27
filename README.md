@@ -23,7 +23,8 @@ Prior work ([Arditi et al., 2025](https://arxiv.org/abs/2406.11717)) showed that
 
 This is why all our methods intervene at pre-hook layer 15.
 
-`refusal_only`: orthogonal projection of `r` across all layers. Uses a simple 8-pair computed direction (`mean(harmful) - mean(harmless)` from 8 contrastive pairs), not the tools direction.
+`refusal_only`: `h -= r` at layer 15 via pre-hook. Direction computed on-the-fly from 8 contrastive pairs.
+
 `refusal_dir_actadd`: `h[15] += -1.0 * r` via pre-hook. Uses the tools direction.
 
 **SAE feature steering**: query [Neuronpedia](https://neuronpedia.org) for top-8 SAE features per prompt (GemmaScope layer-15 16k, `frac_nonzero ≤ 0.01`), extract residual-stream activation of each feature's max-activating text as `e_i`, apply via pre-hook:
