@@ -6,7 +6,7 @@ Each experiment is fully specified by composing YAML configs. Running an experim
 
 ## Motivation
 
-[Arditi et al., 2025](https://arxiv.org/abs/2406.11717) showed that LLM refusal is mediated by a single linear direction and that steering against it alone achieves high ASR. We stress-test this further and find that many bypassed outputs are not convincing or actionable enough to be considered a meaningful success. This raises a natural question: can we steer more effectively by combining the refusal direction with semantically relevant content to produce higher quality outputs?
+[Arditi et al., 2025](https://arxiv.org/abs/2406.11717) showed that LLM refusal is mediated by a single linear direction, implying that steering against it could be a direct attack vector. We verify this and find it holds, but also find that many bypassed outputs are not convincing or actionable enough to be considered a meaningful success. This raises a natural question: can we steer more effectively by combining the refusal direction with semantically relevant content to produce higher quality outputs?
 
 **SAE max-text steering**: Instead of using `W_dec[i]` directly, we extract the model's residual-stream activation on the feature's max-activating text as the steering direction. This grounds the direction in a representation the model recognizes at inference time, rather than a raw decoder weight that may not align with the residual stream.
 
